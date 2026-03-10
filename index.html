@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>愛之泉横浜基督教会 | Agape Brook Yokohama Church</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #C8A35F;
+      --gold-light: #E8D5A8;
+      --dark: #1A1A2E;
+      --dark-blue: #16213E;
+      --navy: #0F3460;
+      --white: #FFFFFF;
+      --off-white: #F5F1EB;
+      --text: #333333;
+      --text-light: #666666;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    /* ===== Navigation ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(26, 26, 46, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 0 2rem;
+      transition: all 0.3s ease;
+    }
+
+    nav .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 64px;
+    }
+
+    nav .logo {
+      color: var(--gold);
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 400;
+      opacity: 0.85;
+      transition: opacity 0.2s, color 0.2s;
+    }
+
+    nav ul li a:hover {
+      opacity: 1;
+      color: var(--gold);
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .menu-toggle span {
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: 0.3s;
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark-blue) 40%, var(--navy) 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(200, 163, 95, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(15, 52, 96, 0.3) 0%, transparent 50%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
+    }
+
+    .cross-icon {
+      font-size: 3rem;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.15em;
+    }
+
+    .hero .subtitle-en {
+      font-size: 1.1rem;
+      color: var(--gold-light);
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .hero .verse {
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-style: italic;
+      line-height: 1.9;
+    }
+
+    .hero .verse cite {
+      display: block;
+      margin-top: 0.5rem;
+      font-style: normal;
+      color: var(--gold);
+      font-size: 0.85rem;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 0.8rem 2.5rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      transition: all 0.3s ease;
+    }
+
+    .hero-cta:hover {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.8rem;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ===== Section Common ===== */
+    section {
+      padding: 5rem 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 2rem;
+      color: var(--dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .section-title .en {
+      font-size: 0.8rem;
+      color: var(--gold);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+      margin: 1rem auto 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* ===== About ===== */
+    .about {
+      background: var(--off-white);
+    }
+
+    .about-text {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      color: var(--text-light);
+      line-height: 2;
+    }
+
+    /* ===== Service Times ===== */
+    .services {
+      background: var(--white);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid #e8e0d4;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .service-card .icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.15rem;
+      color: var(--dark);
+      margin-bottom: 0.8rem;
+    }
+
+    .service-card .time {
+      color: var(--gold);
+      font-weight: 500;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card .detail {
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    /* ===== Schedule Table ===== */
+    .schedule {
+      background: var(--off-white);
+    }
+
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .schedule-table thead {
+      background: var(--dark);
+    }
+
+    .schedule-table th {
+      color: var(--gold-light);
+      padding: 1rem 1.5rem;
+      text-align: left;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .schedule-table td {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid #f0ebe3;
+      font-size: 0.92rem;
+    }
+
+    .schedule-table tbody tr:hover {
+      background: rgba(200, 163, 95, 0.05);
+    }
+
+    /* ===== Location ===== */
+    .location {
+      background: var(--white);
+    }
+
+    .location-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .location-info h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.3rem;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .location-info .info-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+      align-items: flex-start;
+    }
+
+    .info-item .label {
+      min-width: 60px;
+      color: var(--gold);
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .info-item .value {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    .map-placeholder {
+      background: var(--off-white);
+      border: 1px solid #e8e0d4;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .map-placeholder iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ===== Contact ===== */
+    .contact {
+      background: var(--dark);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .contact .section-title h2 {
+      color: var(--white);
+    }
+
+    .contact-methods {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      text-align: center;
+    }
+
+    .contact-item .icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-item .method {
+      color: var(--gold);
+      font-size: 0.85rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-item .value {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.95rem;
+    }
+
+    .contact-item a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-item a:hover {
+      color: var(--gold);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: #111122;
+      text-align: center;
+      padding: 2rem;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.8rem;
+    }
+
+    footer .church-name {
+      color: var(--gold);
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+        letter-spacing: 0.08em;
+      }
+
+      .hero .subtitle-en {
+        font-size: 0.85rem;
+        letter-spacing: 0.15em;
+      }
+
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(26, 26, 46, 0.98);
+        flex-direction: column;
+        padding: 1rem 2rem;
+        gap: 0;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav ul li a {
+        display: block;
+        padding: 0.8rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .location-content {
+        grid-template-columns: 1fr;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 3.5rem 1.5rem;
+      }
+
+      .schedule-table {
+        font-size: 0.85rem;
+      }
+
+      .schedule-table th,
+      .schedule-table td {
+        padding: 0.7rem 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">愛之泉教会</a>
+      <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
+        <span></span><span></span><span></span>
+      </div>
+      <ul>
+        <li><a href="#about">關於我們</a></li>
+        <li><a href="#services">聚會時間</a></li>
+        <li><a href="#location">交通資訊</a></li>
+        <li><a href="#contact">聯絡我們</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="cross-icon">&#10013;</div>
+      <h1>愛之泉横浜基督教会</h1>
+      <p class="subtitle-en">Agape Brook Yokohama Church</p>
+      <div class="verse">
+        「你們要先求祂的國和祂的義，這些東西都要加給你們了。」
+        <cite>— 馬太福音 6:33</cite>
+      </div>
+      <a href="#services" class="hero-cta">崇拜時間</a>
+    </div>
+    <div class="scroll-hint">▼ 向下瀏覽</div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>關於我們</h2>
+        <span class="en">ABOUT US</span>
+      </div>
+      <p class="about-text">
+        愛之泉横浜基督教会位於日本横浜，是一間以華人為主的基督教會。
+        我們以聖經真理為根基，用愛心彼此服事，在異國他鄉建立屬神的家。
+        無論您是初次來到教會，還是尋找一個屬靈的家，我們都歡迎您的到來。
+      </p>
+    </div>
+  </section>
+
+  <!-- Service Times -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>崇拜與聚會</h2>
+        <span class="en">SERVICES</span>
+      </div>
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="icon">&#9960;</div>
+          <h3>主日禮拜</h3>
+          <p class="time">每週日 上午 10:45</p>
+          <p class="detail">会堂禮拜 + YouTube直播</p>
+          <p class="detail">聖餐式：每月第二週主日</p>
+        </div>
+        <div class="service-card">
+          <div class="icon">&#128214;</div>
+          <h3>查經聚會</h3>
+          <p class="time">每週三 上午 10:30 – 12:00</p>
+          <p class="detail">市川教会会堂（LINE群直播）</p>
+        </div>
+        <div class="service-card">
+          <div class="icon">&#128591;</div>
+          <h3>禱告會</h3>
+          <p class="time">每週三 晚上 20:00 – 21:00</p>
+          <p class="detail">微信群線上禱告</p>
+        </div>
+        <div class="service-card">
+          <div class="icon">&#128218;</div>
+          <h3>查經 / 專題講座</h3>
+          <p class="time">每週五 晚上 20:00 – 21:00</p>
+          <p class="detail">LINE群線上聚會</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location -->
+  <section class="location" id="location">
+    <div class="container">
+      <div class="section-title">
+        <h2>交通資訊</h2>
+        <span class="en">LOCATION</span>
+      </div>
+      <div class="location-content">
+        <div class="location-info">
+          <h3>教会地址</h3>
+          <div class="info-item">
+            <span class="label">地址</span>
+            <span class="value">〒220-0000<br>神奈川県横浜市西区○○町1-2-3<br>○○ビル 3F</span>
+          </div>
+          <div class="info-item">
+            <span class="label">交通</span>
+            <span class="value">JR / 私鉄 横浜駅 徒歩約5分</span>
+          </div>
+          <div class="info-item">
+            <span class="label">禮拜</span>
+            <span class="value">每週日 上午 10:45 開始</span>
+          </div>
+        </div>
+        <div class="map-placeholder">
+          <!-- TODO: 替换为真实Google Maps嵌入 -->
+          <p>📍 地圖（待嵌入）<br><small>横浜駅前</small></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>聯絡我們</h2>
+        <span class="en">CONTACT</span>
+      </div>
+      <div class="contact-methods">
+        <div class="contact-item">
+          <div class="icon">&#128231;</div>
+          <p class="method">電子郵件</p>
+          <p class="value"><a href="mailto:info@example.com">info@example.com</a></p>
+        </div>
+        <div class="contact-item">
+          <div class="icon">&#128241;</div>
+          <p class="method">電話</p>
+          <p class="value"><a href="tel:+8145-000-0000">045-000-0000</a></p>
+        </div>
+        <div class="contact-item">
+          <div class="icon">💬</div>
+          <p class="method">LINE</p>
+          <p class="value">教会LINE群</p>
+        </div>
+        <div class="contact-item">
+          <div class="icon">💬</div>
+          <p class="method">微信</p>
+          <p class="value">愛之泉禱告群</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p class="church-name">愛之泉横浜基督教会</p>
+    <p>Agape Brook Yokohama Church</p>
+    <p style="margin-top: 0.5rem;">&copy; 2026 All Rights Reserved</p>
+  </footer>
+
+  <!-- Smooth scroll for nav links & close mobile menu -->
+  <script>
+    document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('nav ul').classList.remove('active');
+      });
+    });
+
+    // Navbar background on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 50) {
+        nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.3)';
+      } else {
+        nav.style.boxShadow = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
