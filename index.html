@@ -6,7 +6,7 @@
   <title>愛之泉横浜基督教会 | Agape Brook Yokohama Church</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --gold: #C8A35F;
@@ -31,9 +31,13 @@
     }
 
     body {
-      font-family: 'Noto Sans TC', sans-serif;
+      font-family: 'Noto Sans TC', 'Noto Sans JP', sans-serif;
       color: var(--text);
       line-height: 1.8;
+    }
+
+    body.lang-ja {
+      font-family: 'Noto Sans JP', 'Noto Sans TC', sans-serif;
     }
 
     /* ===== Navigation ===== */
@@ -59,7 +63,7 @@
 
     nav .logo {
       color: var(--gold);
-      font-family: 'Noto Serif TC', serif;
+      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
       font-size: 1.1rem;
       font-weight: 600;
       text-decoration: none;
@@ -68,7 +72,8 @@
     nav ul {
       list-style: none;
       display: flex;
-      gap: 2rem;
+      gap: 1.5rem;
+      align-items: center;
     }
 
     nav ul li a {
@@ -97,6 +102,37 @@
       height: 2px;
       background: var(--white);
       transition: 0.3s;
+    }
+
+    /* ===== Language Switcher ===== */
+    .lang-switcher {
+      display: flex;
+      gap: 0.3rem;
+      margin-left: 1rem;
+      border-left: 1px solid rgba(255,255,255,0.2);
+      padding-left: 1rem;
+    }
+
+    .lang-switcher button {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.6);
+      padding: 0.2rem 0.5rem;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-radius: 3px;
+    }
+
+    .lang-switcher button:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .lang-switcher button.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--dark);
     }
 
     /* ===== Hero Section ===== */
@@ -138,7 +174,7 @@
     }
 
     .hero h1 {
-      font-family: 'Noto Serif TC', serif;
+      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
       font-size: 3.2rem;
       font-weight: 700;
       color: var(--white);
@@ -214,7 +250,7 @@
     }
 
     .section-title h2 {
-      font-family: 'Noto Serif TC', serif;
+      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
       font-size: 2rem;
       color: var(--dark);
       margin-bottom: 0.3rem;
@@ -267,7 +303,7 @@
     }
 
     .pastor-card h3 {
-      font-family: 'Noto Serif TC', serif;
+      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
       font-size: 1.4rem;
       color: var(--dark);
       margin-bottom: 0.3rem;
@@ -298,7 +334,7 @@
 
     /* ===== Service Times ===== */
     .services {
-      background: var(--white);
+      background: var(--off-white);
     }
 
     .service-grid {
@@ -326,7 +362,7 @@
     }
 
     .service-card h3 {
-      font-family: 'Noto Serif TC', serif;
+      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
       font-size: 1.15rem;
       color: var(--dark);
       margin-bottom: 0.8rem;
@@ -344,40 +380,6 @@
       color: var(--text-light);
     }
 
-    /* ===== Schedule Table ===== */
-    .schedule {
-      background: var(--off-white);
-    }
-
-    .schedule-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: var(--white);
-      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-    }
-
-    .schedule-table thead {
-      background: var(--dark);
-    }
-
-    .schedule-table th {
-      color: var(--gold-light);
-      padding: 1rem 1.5rem;
-      text-align: left;
-      font-weight: 500;
-      font-size: 0.9rem;
-    }
-
-    .schedule-table td {
-      padding: 1rem 1.5rem;
-      border-bottom: 1px solid #f0ebe3;
-      font-size: 0.92rem;
-    }
-
-    .schedule-table tbody tr:hover {
-      background: rgba(200, 163, 95, 0.05);
-    }
-
     /* ===== Location ===== */
     .location {
       background: var(--white);
@@ -391,7 +393,7 @@
     }
 
     .location-info h3 {
-      font-family: 'Noto Serif TC', serif;
+      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
       font-size: 1.3rem;
       color: var(--dark);
       margin-bottom: 1.5rem;
@@ -492,7 +494,7 @@
 
     footer .church-name {
       color: var(--gold);
-      font-family: 'Noto Serif TC', serif;
+      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
       font-size: 0.9rem;
       margin-bottom: 0.3rem;
     }
@@ -531,6 +533,13 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       }
 
+      .lang-switcher {
+        border-left: none;
+        margin-left: 0;
+        padding-left: 0;
+        padding-top: 0.5rem;
+      }
+
       .menu-toggle {
         display: flex;
       }
@@ -546,15 +555,6 @@
       section {
         padding: 3.5rem 1.5rem;
       }
-
-      .schedule-table {
-        font-size: 0.85rem;
-      }
-
-      .schedule-table th,
-      .schedule-table td {
-        padding: 0.7rem 0.8rem;
-      }
     }
   </style>
 </head>
@@ -563,16 +563,23 @@
   <!-- Navigation -->
   <nav>
     <div class="nav-inner">
-      <a href="#" class="logo">愛之泉教会</a>
+      <a href="#" class="logo" data-i18n="logo">愛之泉教会</a>
       <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
         <span></span><span></span><span></span>
       </div>
       <ul>
-        <li><a href="#about">關於我們</a></li>
-        <li><a href="#pastor">牧師介紹</a></li>
-        <li><a href="#services">聚會時間</a></li>
-        <li><a href="#location">交通資訊</a></li>
-        <li><a href="#contact">聯絡我們</a></li>
+        <li><a href="#about" data-i18n="nav.about">關於我們</a></li>
+        <li><a href="#pastor" data-i18n="nav.pastor">牧師介紹</a></li>
+        <li><a href="#services" data-i18n="nav.services">聚會時間</a></li>
+        <li><a href="#location" data-i18n="nav.location">交通資訊</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">聯絡我們</a></li>
+        <li>
+          <div class="lang-switcher">
+            <button onclick="switchLang('zh-TW')" class="active">繁體</button>
+            <button onclick="switchLang('zh-CN')">简体</button>
+            <button onclick="switchLang('ja')">日本語</button>
+          </div>
+        </li>
       </ul>
     </div>
   </nav>
@@ -581,25 +588,25 @@
   <section class="hero" id="home">
     <div class="hero-content">
       <div class="cross-icon">&#10013;</div>
-      <h1>愛之泉横浜基督教会</h1>
+      <h1 data-i18n="hero.title">愛之泉横浜基督教会</h1>
       <p class="subtitle-en">Agape Brook Yokohama Church</p>
       <div class="verse">
-        「你們要先求祂的國和祂的義，這些東西都要加給你們了。」
-        <cite>— 馬太福音 6:33</cite>
+        <span data-i18n="hero.verse">「你們要先求祂的國和祂的義，這些東西都要加給你們了。」</span>
+        <cite data-i18n="hero.cite">— 馬太福音 6:33</cite>
       </div>
-      <a href="#services" class="hero-cta">崇拜時間</a>
+      <a href="#services" class="hero-cta" data-i18n="hero.cta">崇拜時間</a>
     </div>
-    <div class="scroll-hint">▼ 向下瀏覽</div>
+    <div class="scroll-hint" data-i18n="hero.scroll">▼ 向下瀏覽</div>
   </section>
 
   <!-- About -->
   <section class="about" id="about">
     <div class="container">
       <div class="section-title">
-        <h2>關於我們</h2>
+        <h2 data-i18n="about.title">關於我們</h2>
         <span class="en">ABOUT US</span>
       </div>
-      <p class="about-text">
+      <p class="about-text" data-i18n="about.text">
         愛之泉横浜基督教会位於日本横浜，是一間以華人為主的基督教會。
         我們以聖經真理為根基，用愛心彼此服事，在異國他鄉建立屬神的家。
         無論您是初次來到教會，還是尋找一個屬靈的家，我們都歡迎您的到來。
@@ -611,23 +618,23 @@
   <section class="pastor" id="pastor">
     <div class="container">
       <div class="section-title">
-        <h2>牧師介紹</h2>
+        <h2 data-i18n="pastor.title">牧師介紹</h2>
         <span class="en">PASTOR</span>
       </div>
       <div class="pastor-card">
-        <h3>河原 駿一（馬宏偉）牧師</h3>
-        <p class="pastor-subtitle">愛之泉横浜基督教会 主任牧師</p>
+        <h3 data-i18n="pastor.name">河原 駿一（馬宏偉）牧師</h3>
+        <p class="pastor-subtitle" data-i18n="pastor.subtitle">愛之泉横浜基督教会 主任牧師</p>
         <dl class="pastor-bio">
-          <dt>學歷</dt>
-          <dd>内蒙古大学外語系日本語専業 学士（1984年）</dd>
-          <dd>南開大学社会学系社会心理学 碩士（1990年）</dd>
-          <dd>大東文化大学中国学 博士（2000年）</dd>
-          <dt>神學裝備</dt>
-          <dd>聖契神学校専門科（2012–2019年）</dd>
-          <dt>信仰歷程</dt>
-          <dd>1989年信主受洗</dd>
-          <dd>2019年1月成為専職傳道</dd>
-          <dd>2019年6月按立為牧師</dd>
+          <dt data-i18n="pastor.edu">學歷</dt>
+          <dd data-i18n="pastor.edu1">内蒙古大学外語系日本語専業 学士（1984年）</dd>
+          <dd data-i18n="pastor.edu2">南開大学社会学系社会心理学 碩士（1990年）</dd>
+          <dd data-i18n="pastor.edu3">大東文化大学中国学 博士（2000年）</dd>
+          <dt data-i18n="pastor.theo">神學裝備</dt>
+          <dd data-i18n="pastor.theo1">聖契神学校専門科（2012–2019年）</dd>
+          <dt data-i18n="pastor.faith">信仰歷程</dt>
+          <dd data-i18n="pastor.faith1">1989年信主受洗</dd>
+          <dd data-i18n="pastor.faith2">2019年1月成為専職傳道</dd>
+          <dd data-i18n="pastor.faith3">2019年6月按立為牧師</dd>
         </dl>
       </div>
     </div>
@@ -637,35 +644,35 @@
   <section class="services" id="services">
     <div class="container">
       <div class="section-title">
-        <h2>崇拜與聚會</h2>
+        <h2 data-i18n="services.title">崇拜與聚會</h2>
         <span class="en">SERVICES</span>
       </div>
       <div class="service-grid">
         <div class="service-card">
           <div class="icon">&#9960;</div>
-          <h3>主日禮拜</h3>
-          <p class="time">每週日 上午 10:00 – 下午 14:00</p>
-          <p class="detail">会堂禮拜 + YouTube直播</p>
-          <p class="detail">聖餐式：每月第二週主日</p>
-          <p class="detail" style="color:#e88; margin-top:0.5rem;">※ 10:00前及14:00後聚会场地利用不可</p>
+          <h3 data-i18n="services.sunday">主日禮拜</h3>
+          <p class="time" data-i18n="services.sunday.time">每週日 上午 10:00 – 下午 14:00</p>
+          <p class="detail" data-i18n="services.sunday.detail">会堂禮拜 + YouTube直播</p>
+          <p class="detail" data-i18n="services.sunday.communion">聖餐式：每月第二週主日</p>
+          <p class="detail" style="color:#e88; margin-top:0.5rem;" data-i18n="services.sunday.note">※ 10:00前及14:00後聚会场地利用不可</p>
         </div>
         <div class="service-card">
           <div class="icon">&#128214;</div>
-          <h3>查經聚會</h3>
-          <p class="time">每週三 上午 10:30 – 12:00</p>
-          <p class="detail">市川教会会堂（LINE群直播）</p>
+          <h3 data-i18n="services.bible">查經聚會</h3>
+          <p class="time" data-i18n="services.bible.time">每週三 上午 10:30 – 12:00</p>
+          <p class="detail" data-i18n="services.bible.detail">市川教会会堂（LINE群直播）</p>
         </div>
         <div class="service-card">
           <div class="icon">&#128591;</div>
-          <h3>禱告會</h3>
-          <p class="time">每週三 晚上 20:00 – 21:00</p>
-          <p class="detail">微信群線上禱告</p>
+          <h3 data-i18n="services.prayer">禱告會</h3>
+          <p class="time" data-i18n="services.prayer.time">每週三 晚上 20:00 – 21:00</p>
+          <p class="detail" data-i18n="services.prayer.detail">微信群線上禱告</p>
         </div>
         <div class="service-card">
           <div class="icon">&#128218;</div>
-          <h3>查經 / 專題講座</h3>
-          <p class="time">每週五 晚上 20:00 – 21:00</p>
-          <p class="detail">LINE群線上聚會</p>
+          <h3 data-i18n="services.friday">查經 / 專題講座</h3>
+          <p class="time" data-i18n="services.friday.time">每週五 晚上 20:00 – 21:00</p>
+          <p class="detail" data-i18n="services.friday.detail">LINE群線上聚會</p>
         </div>
       </div>
     </div>
@@ -675,23 +682,23 @@
   <section class="location" id="location">
     <div class="container">
       <div class="section-title">
-        <h2>交通資訊</h2>
+        <h2 data-i18n="location.title">交通資訊</h2>
         <span class="en">LOCATION</span>
       </div>
       <div class="location-content">
         <div class="location-info">
-          <h3>教会地址</h3>
+          <h3 data-i18n="location.heading">教会地址</h3>
           <div class="info-item">
-            <span class="label">地址</span>
-            <span class="value">〒220-0011<br>神奈川県横浜市西区高島2丁目11−2<br>スカイメナー横浜 919号室</span>
+            <span class="label" data-i18n="location.addr">地址</span>
+            <span class="value" data-i18n-html="location.addr.val">〒220-0011<br>神奈川県横浜市西区高島2丁目11−2<br>スカイメナー横浜 919号室</span>
           </div>
           <div class="info-item">
-            <span class="label">交通</span>
-            <span class="value">JR / 私鉄 横浜駅 徒歩約5分</span>
+            <span class="label" data-i18n="location.access">交通</span>
+            <span class="value" data-i18n="location.access.val">JR / 私鉄 横浜駅 徒歩約5分</span>
           </div>
           <div class="info-item">
-            <span class="label">禮拜</span>
-            <span class="value">每週日 上午 10:00 – 下午 14:00</span>
+            <span class="label" data-i18n="location.worship">禮拜</span>
+            <span class="value" data-i18n="location.worship.val">每週日 上午 10:00 – 下午 14:00</span>
           </div>
         </div>
         <div class="map-placeholder">
@@ -705,24 +712,24 @@
   <section class="contact" id="contact">
     <div class="container">
       <div class="section-title">
-        <h2>聯絡我們</h2>
+        <h2 data-i18n="contact.title">聯絡我們</h2>
         <span class="en">CONTACT</span>
       </div>
       <div class="contact-methods">
         <div class="contact-item">
           <div class="icon">&#128231;</div>
-          <p class="method">電子郵件</p>
+          <p class="method" data-i18n="contact.email">電子郵件</p>
           <p class="value"><a href="mailto:gaop2560@gmail.com">gaop2560@gmail.com</a></p>
-        </div>
-<div class="contact-item">
-          <div class="icon">💬</div>
-          <p class="method">LINE</p>
-          <p class="value">教会LINE群</p>
         </div>
         <div class="contact-item">
           <div class="icon">💬</div>
-          <p class="method">微信</p>
-          <p class="value">愛之泉禱告群</p>
+          <p class="method">LINE</p>
+          <p class="value" data-i18n="contact.line">教会LINE群</p>
+        </div>
+        <div class="contact-item">
+          <div class="icon">💬</div>
+          <p class="method" data-i18n="contact.wechat.label">微信</p>
+          <p class="value" data-i18n="contact.wechat">愛之泉禱告群</p>
         </div>
       </div>
     </div>
@@ -730,27 +737,236 @@
 
   <!-- Footer -->
   <footer>
-    <p class="church-name">愛之泉横浜基督教会</p>
+    <p class="church-name" data-i18n="footer.name">愛之泉横浜基督教会</p>
     <p>Agape Brook Yokohama Church</p>
     <p style="margin-top: 0.5rem;">&copy; 2026 All Rights Reserved</p>
   </footer>
 
-  <!-- Smooth scroll for nav links & close mobile menu -->
   <script>
+    const i18n = {
+      'zh-TW': {
+        'logo': '愛之泉教会',
+        'nav.about': '關於我們',
+        'nav.pastor': '牧師介紹',
+        'nav.services': '聚會時間',
+        'nav.location': '交通資訊',
+        'nav.contact': '聯絡我們',
+        'hero.title': '愛之泉横浜基督教会',
+        'hero.verse': '「你們要先求祂的國和祂的義，這些東西都要加給你們了。」',
+        'hero.cite': '— 馬太福音 6:33',
+        'hero.cta': '崇拜時間',
+        'hero.scroll': '▼ 向下瀏覽',
+        'about.title': '關於我們',
+        'about.text': '愛之泉横浜基督教会位於日本横浜，是一間以華人為主的基督教會。我們以聖經真理為根基，用愛心彼此服事，在異國他鄉建立屬神的家。無論您是初次來到教會，還是尋找一個屬靈的家，我們都歡迎您的到來。',
+        'pastor.title': '牧師介紹',
+        'pastor.name': '河原 駿一（馬宏偉）牧師',
+        'pastor.subtitle': '愛之泉横浜基督教会 主任牧師',
+        'pastor.edu': '學歷',
+        'pastor.edu1': '内蒙古大学外語系日本語専業 学士（1984年）',
+        'pastor.edu2': '南開大学社会学系社会心理学 碩士（1990年）',
+        'pastor.edu3': '大東文化大学中国学 博士（2000年）',
+        'pastor.theo': '神學裝備',
+        'pastor.theo1': '聖契神学校専門科（2012–2019年）',
+        'pastor.faith': '信仰歷程',
+        'pastor.faith1': '1989年信主受洗',
+        'pastor.faith2': '2019年1月成為専職傳道',
+        'pastor.faith3': '2019年6月按立為牧師',
+        'services.title': '崇拜與聚會',
+        'services.sunday': '主日禮拜',
+        'services.sunday.time': '每週日 上午 10:00 – 下午 14:00',
+        'services.sunday.detail': '会堂禮拜 + YouTube直播',
+        'services.sunday.communion': '聖餐式：每月第二週主日',
+        'services.sunday.note': '※ 10:00前及14:00後聚会场地利用不可',
+        'services.bible': '查經聚會',
+        'services.bible.time': '每週三 上午 10:30 – 12:00',
+        'services.bible.detail': '市川教会会堂（LINE群直播）',
+        'services.prayer': '禱告會',
+        'services.prayer.time': '每週三 晚上 20:00 – 21:00',
+        'services.prayer.detail': '微信群線上禱告',
+        'services.friday': '查經 / 專題講座',
+        'services.friday.time': '每週五 晚上 20:00 – 21:00',
+        'services.friday.detail': 'LINE群線上聚會',
+        'location.title': '交通資訊',
+        'location.heading': '教会地址',
+        'location.addr': '地址',
+        'location.addr.val': '〒220-0011<br>神奈川県横浜市西区高島2丁目11−2<br>スカイメナー横浜 919号室',
+        'location.access': '交通',
+        'location.access.val': 'JR / 私鉄 横浜駅 徒歩約5分',
+        'location.worship': '禮拜',
+        'location.worship.val': '每週日 上午 10:00 – 下午 14:00',
+        'contact.title': '聯絡我們',
+        'contact.email': '電子郵件',
+        'contact.line': '教会LINE群',
+        'contact.wechat.label': '微信',
+        'contact.wechat': '愛之泉禱告群',
+        'footer.name': '愛之泉横浜基督教会'
+      },
+      'zh-CN': {
+        'logo': '爱之泉教会',
+        'nav.about': '关于我们',
+        'nav.pastor': '牧师介绍',
+        'nav.services': '聚会时间',
+        'nav.location': '交通信息',
+        'nav.contact': '联络我们',
+        'hero.title': '爱之泉横浜基督教会',
+        'hero.verse': '「你们要先求祂的国和祂的义，这些东西都要加给你们了。」',
+        'hero.cite': '— 马太福音 6:33',
+        'hero.cta': '崇拜时间',
+        'hero.scroll': '▼ 向下浏览',
+        'about.title': '关于我们',
+        'about.text': '爱之泉横浜基督教会位于日本横浜，是一间以华人为主的基督教会。我们以圣经真理为根基，用爱心彼此服事，在异国他乡建立属神的家。无论您是初次来到教会，还是寻找一个属灵的家，我们都欢迎您的到来。',
+        'pastor.title': '牧师介绍',
+        'pastor.name': '河原 駿一（马宏伟）牧师',
+        'pastor.subtitle': '爱之泉横浜基督教会 主任牧师',
+        'pastor.edu': '学历',
+        'pastor.edu1': '内蒙古大学外语系日本语专业 学士（1984年）',
+        'pastor.edu2': '南开大学社会学系社会心理学 硕士（1990年）',
+        'pastor.edu3': '大东文化大学中国学 博士（2000年）',
+        'pastor.theo': '神学装备',
+        'pastor.theo1': '圣契神学校专门科（2012–2019年）',
+        'pastor.faith': '信仰历程',
+        'pastor.faith1': '1989年信主受洗',
+        'pastor.faith2': '2019年1月成为专职传道',
+        'pastor.faith3': '2019年6月按立为牧师',
+        'services.title': '崇拜与聚会',
+        'services.sunday': '主日礼拜',
+        'services.sunday.time': '每周日 上午 10:00 – 下午 14:00',
+        'services.sunday.detail': '会堂礼拜 + YouTube直播',
+        'services.sunday.communion': '圣餐式：每月第二周主日',
+        'services.sunday.note': '※ 10:00前及14:00后聚会场地利用不可',
+        'services.bible': '查经聚会',
+        'services.bible.time': '每周三 上午 10:30 – 12:00',
+        'services.bible.detail': '市川教会会堂（LINE群直播）',
+        'services.prayer': '祷告会',
+        'services.prayer.time': '每周三 晚上 20:00 – 21:00',
+        'services.prayer.detail': '微信群线上祷告',
+        'services.friday': '查经 / 专题讲座',
+        'services.friday.time': '每周五 晚上 20:00 – 21:00',
+        'services.friday.detail': 'LINE群线上聚会',
+        'location.title': '交通信息',
+        'location.heading': '教会地址',
+        'location.addr': '地址',
+        'location.addr.val': '〒220-0011<br>神奈川県横浜市西区高島2丁目11−2<br>スカイメナー横浜 919号室',
+        'location.access': '交通',
+        'location.access.val': 'JR / 私铁 横浜站 步行约5分钟',
+        'location.worship': '礼拜',
+        'location.worship.val': '每周日 上午 10:00 – 下午 14:00',
+        'contact.title': '联络我们',
+        'contact.email': '电子邮件',
+        'contact.line': '教会LINE群',
+        'contact.wechat.label': '微信',
+        'contact.wechat': '爱之泉祷告群',
+        'footer.name': '爱之泉横浜基督教会'
+      },
+      'ja': {
+        'logo': '愛の泉教会',
+        'nav.about': '私たちについて',
+        'nav.pastor': '牧師紹介',
+        'nav.services': '集会案内',
+        'nav.location': 'アクセス',
+        'nav.contact': 'お問い合わせ',
+        'hero.title': '愛の泉横浜キリスト教会',
+        'hero.verse': '「まず神の国と神の義とを求めなさい。そうすれば、これらのものはすべて、それに加えて与えられます。」',
+        'hero.cite': '— マタイの福音書 6:33',
+        'hero.cta': '礼拝時間',
+        'hero.scroll': '▼ スクロール',
+        'about.title': '私たちについて',
+        'about.text': '愛の泉横浜キリスト教会は、日本の横浜にある中国語を主な言語とするキリスト教会です。聖書の真理を土台とし、愛をもって互いに仕え合い、異国の地で神の家族を築いています。初めて教会を訪れる方も、霊的な居場所を探している方も、心から歓迎いたします。',
+        'pastor.title': '牧師紹介',
+        'pastor.name': '河原 駿一（馬宏偉）牧師',
+        'pastor.subtitle': '愛の泉横浜キリスト教会 主任牧師',
+        'pastor.edu': '学歴',
+        'pastor.edu1': '内モンゴル大学外国語学部日本語学科 学士（1984年）',
+        'pastor.edu2': '南開大学社会学部社会心理学 修士（1990年）',
+        'pastor.edu3': '大東文化大学中国学 博士（2000年）',
+        'pastor.theo': '神学教育',
+        'pastor.theo1': '聖契神学校専門科（2012–2019年）',
+        'pastor.faith': '信仰の歩み',
+        'pastor.faith1': '1989年 受洗',
+        'pastor.faith2': '2019年1月 専任伝道者に就任',
+        'pastor.faith3': '2019年6月 牧師按手',
+        'services.title': '礼拝と集会',
+        'services.sunday': '主日礼拝',
+        'services.sunday.time': '毎週日曜 10:00 – 14:00',
+        'services.sunday.detail': '会堂礼拝 + YouTube配信',
+        'services.sunday.communion': '聖餐式：毎月第2日曜日',
+        'services.sunday.note': '※ 10:00前・14:00以降は会場利用不可',
+        'services.bible': '聖書勉強会',
+        'services.bible.time': '毎週水曜 10:30 – 12:00',
+        'services.bible.detail': '市川教会会堂（LINEグループ配信）',
+        'services.prayer': '祈祷会',
+        'services.prayer.time': '毎週水曜 20:00 – 21:00',
+        'services.prayer.detail': 'WeChatグループ オンライン祈祷',
+        'services.friday': '聖書勉強 / 講座',
+        'services.friday.time': '毎週金曜 20:00 – 21:00',
+        'services.friday.detail': 'LINEグループ オンライン集会',
+        'location.title': 'アクセス',
+        'location.heading': '教会所在地',
+        'location.addr': '住所',
+        'location.addr.val': '〒220-0011<br>神奈川県横浜市西区高島2丁目11−2<br>スカイメナー横浜 919号室',
+        'location.access': '交通',
+        'location.access.val': 'JR / 私鉄 横浜駅より徒歩約5分',
+        'location.worship': '礼拝',
+        'location.worship.val': '毎週日曜 10:00 – 14:00',
+        'contact.title': 'お問い合わせ',
+        'contact.email': 'メール',
+        'contact.line': '教会LINEグループ',
+        'contact.wechat.label': 'WeChat',
+        'contact.wechat': '愛の泉祈祷グループ',
+        'footer.name': '愛の泉横浜キリスト教会'
+      }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'zh-TW';
+
+    function switchLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      const dict = i18n[lang];
+
+      // Update text content
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) el.textContent = dict[key];
+      });
+
+      // Update HTML content (for elements with <br>)
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (dict[key]) el.innerHTML = dict[key];
+      });
+
+      // Update active button
+      document.querySelectorAll('.lang-switcher button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target ? event.target.classList.add('active') :
+        document.querySelector(`.lang-switcher button[onclick*="${lang}"]`).classList.add('active');
+
+      // Update body class for font
+      document.body.className = lang === 'ja' ? 'lang-ja' : '';
+
+      // Update HTML lang attribute
+      document.documentElement.lang = lang === 'zh-TW' ? 'zh-Hant' : lang === 'zh-CN' ? 'zh-Hans' : 'ja';
+    }
+
+    // Apply saved language on load
+    window.addEventListener('DOMContentLoaded', () => {
+      if (currentLang !== 'zh-TW') {
+        document.querySelector(`.lang-switcher button[onclick*="${currentLang}"]`).click();
+      }
+    });
+
+    // Nav scroll & mobile menu
     document.querySelectorAll('nav a[href^="#"]').forEach(link => {
       link.addEventListener('click', () => {
         document.querySelector('nav ul').classList.remove('active');
       });
     });
 
-    // Navbar background on scroll
     window.addEventListener('scroll', () => {
       const nav = document.querySelector('nav');
-      if (window.scrollY > 50) {
-        nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.3)';
-      } else {
-        nav.style.boxShadow = 'none';
-      }
+      nav.style.boxShadow = window.scrollY > 50 ? '0 2px 20px rgba(0,0,0,0.3)' : 'none';
     });
   </script>
 
