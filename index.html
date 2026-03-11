@@ -483,6 +483,62 @@
       color: var(--gold);
     }
 
+    /* ===== Contact Form ===== */
+    .contact-form {
+      max-width: 500px;
+      margin: 2.5rem auto 0;
+      text-align: left;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      font-size: 0.95rem;
+      font-family: inherit;
+      border-radius: 4px;
+      transition: border-color 0.2s;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: rgba(255,255,255,0.4);
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    .contact-form textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 0.8rem;
+      background: none;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      border-radius: 4px;
+      letter-spacing: 0.1em;
+    }
+
+    .contact-form button:hover {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
     /* ===== Footer ===== */
     footer {
       background: #111122;
@@ -732,6 +788,15 @@
           <p class="value" data-i18n="contact.wechat">愛之泉禱告群</p>
         </div>
       </div>
+      <form class="contact-form" action="https://formsubmit.co/gaop2560@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="愛之泉教会 網站留言">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://agape-brook-yokohama.github.io/#contact">
+        <input type="text" name="name" required data-i18n-placeholder="form.name" placeholder="您的姓名">
+        <input type="email" name="email" required data-i18n-placeholder="form.email" placeholder="電子郵件">
+        <textarea name="message" required data-i18n-placeholder="form.message" placeholder="留言内容"></textarea>
+        <button type="submit" data-i18n="form.submit">發送留言</button>
+      </form>
     </div>
   </section>
 
@@ -799,7 +864,11 @@
         'contact.line': '教会LINE群',
         'contact.wechat.label': '微信',
         'contact.wechat': '愛之泉禱告群',
-        'footer.name': '愛之泉横浜基督教会'
+        'footer.name': '愛之泉横浜基督教会',
+        'form.name': '您的姓名',
+        'form.email': '電子郵件',
+        'form.message': '留言内容',
+        'form.submit': '發送留言'
       },
       'zh-CN': {
         'logo': '爱之泉教会',
@@ -856,7 +925,11 @@
         'contact.line': '教会LINE群',
         'contact.wechat.label': '微信',
         'contact.wechat': '爱之泉祷告群',
-        'footer.name': '爱之泉横浜基督教会'
+        'footer.name': '爱之泉横浜基督教会',
+        'form.name': '您的姓名',
+        'form.email': '电子邮件',
+        'form.message': '留言内容',
+        'form.submit': '发送留言'
       },
       'ja': {
         'logo': '愛の泉教会',
@@ -913,7 +986,11 @@
         'contact.line': '教会LINEグループ',
         'contact.wechat.label': 'WeChat',
         'contact.wechat': '愛の泉祈祷グループ',
-        'footer.name': '愛の泉横浜キリスト教会'
+        'footer.name': '愛の泉横浜キリスト教会',
+        'form.name': 'お名前',
+        'form.email': 'メールアドレス',
+        'form.message': 'メッセージ',
+        'form.submit': '送信する'
       }
     };
 
@@ -934,6 +1011,12 @@
       document.querySelectorAll('[data-i18n-html]').forEach(el => {
         const key = el.getAttribute('data-i18n-html');
         if (dict[key]) el.innerHTML = dict[key];
+      });
+
+      // Update placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (dict[key]) el.placeholder = dict[key];
       });
 
       // Update active button
