@@ -105,6 +105,9 @@
       flex-direction: column;
       cursor: pointer;
       gap: 5px;
+      background: none;
+      border: none;
+      padding: 4px;
     }
 
     .menu-toggle span {
@@ -112,6 +115,17 @@
       height: 2px;
       background: var(--white);
       transition: 0.3s;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
     }
 
     /* ===== Language Switcher ===== */
@@ -569,6 +583,19 @@
       color: var(--dark);
     }
 
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      color: var(--gold);
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .form-success.show {
+      display: block;
+    }
+
     /* ===== Footer ===== */
     footer {
       background: #111122;
@@ -650,9 +677,9 @@
   <nav>
     <div class="nav-inner">
       <a href="#" class="logo" data-i18n="logo">愛之泉教会</a>
-      <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
+      <button class="menu-toggle" aria-label="メニュー" onclick="document.querySelector('nav ul').classList.toggle('active')">
         <span></span><span></span><span></span>
-      </div>
+      </button>
       <ul>
         <li><a href="#about" data-i18n="nav.about">關於我們</a></li>
         <li><a href="#pastor" data-i18n="nav.pastor">牧師介紹</a></li>
@@ -790,7 +817,7 @@
           </div>
         </div>
         <div class="map-placeholder">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3249.8!2d139.6215!3d35.4657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z56We5aWI5bed55yM5qiq5rWc5biC6KW_5Yy66auY5bO2MuS4geebrjEx4oiSMg!5e0!3m2!1sja!2sjp!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps?q=35.4628833,139.6220261&z=17&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </div>
@@ -807,11 +834,17 @@
         <input type="hidden" name="_subject" value="愛之泉教会 網站留言">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" value="https://agape-brook-yokohama.github.io/#contact">
-        <input type="text" name="name" required data-i18n-placeholder="form.name" placeholder="您的姓名">
-        <input type="email" name="email" required data-i18n-placeholder="form.email" placeholder="電子郵件">
-        <textarea name="message" required data-i18n-placeholder="form.message" placeholder="留言内容"></textarea>
+        <label for="field-name" class="sr-only" data-i18n="form.name">您的姓名</label>
+        <input id="field-name" type="text" name="name" required data-i18n-placeholder="form.name" placeholder="您的姓名">
+        <label for="field-email" class="sr-only" data-i18n="form.email">電子郵件</label>
+        <input id="field-email" type="email" name="email" required data-i18n-placeholder="form.email" placeholder="電子郵件">
+        <label for="field-message" class="sr-only" data-i18n="form.message">留言内容</label>
+        <textarea id="field-message" name="message" required data-i18n-placeholder="form.message" placeholder="留言内容"></textarea>
         <button type="submit" data-i18n="form.submit">發送留言</button>
       </form>
+      <div class="form-success" id="formSuccess">
+        <p data-i18n="form.success">✓ 留言已發送成功！感謝您的來信，我們會盡快回覆。</p>
+      </div>
     </div>
   </section>
 
@@ -885,7 +918,8 @@
         'form.name': '您的姓名',
         'form.email': '電子郵件',
         'form.message': '留言内容',
-        'form.submit': '發送留言'
+        'form.submit': '發送留言',
+        'form.success': '✓ 留言已發送成功！感謝您的來信，我們會盡快回覆。'
       },
       'zh-CN': {
         'logo': '爱之泉教会',
@@ -948,7 +982,8 @@
         'form.name': '您的姓名',
         'form.email': '电子邮件',
         'form.message': '留言内容',
-        'form.submit': '发送留言'
+        'form.submit': '发送留言',
+        'form.success': '✓ 留言已发送成功！感谢您的来信，我们会尽快回复。'
       },
       'ja': {
         'logo': '愛の泉教会',
@@ -1011,7 +1046,8 @@
         'form.name': 'お名前',
         'form.email': 'メールアドレス',
         'form.message': 'メッセージ',
-        'form.submit': '送信する'
+        'form.submit': '送信する',
+        'form.success': '✓ 送信完了！お問い合わせありがとうございます。できるだけ早くご返信いたします。'
       }
     };
 
@@ -1050,8 +1086,7 @@
       document.querySelectorAll('.lang-switcher button').forEach(btn => {
         btn.classList.remove('active');
       });
-      event.target ? event.target.classList.add('active') :
-        document.querySelector(`.lang-switcher button[onclick*="${lang}"]`).classList.add('active');
+      document.querySelector(`.lang-switcher button[onclick*="${lang}"]`).classList.add('active');
 
       // Update body class for font
       document.body.className = lang === 'ja' ? 'lang-ja' : '';
@@ -1062,8 +1097,15 @@
 
     // Apply saved language on load
     window.addEventListener('DOMContentLoaded', () => {
-      if (currentLang !== 'zh-TW') {
-        document.querySelector(`.lang-switcher button[onclick*="${currentLang}"]`).click();
+      switchLang(currentLang);
+
+      // Show success message after form submission redirect
+      if (document.referrer.includes('formsubmit.co')) {
+        const form = document.querySelector('.contact-form');
+        const msg = document.getElementById('formSuccess');
+        form.style.display = 'none';
+        msg.classList.add('show');
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
       }
     });
 
