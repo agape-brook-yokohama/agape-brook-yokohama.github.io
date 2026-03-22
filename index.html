@@ -301,9 +301,29 @@
       line-height: 2;
     }
 
+    .about-photo {
+      display: block;
+      max-width: 600px;
+      width: 100%;
+      margin: 2rem auto 0;
+      border-radius: 8px;
+      border: 2px solid var(--gold-light);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
     /* ===== Pastor ===== */
     .pastor {
       background: var(--white);
+    }
+
+    .pastor-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--gold);
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
     .pastor-card {
@@ -677,6 +697,7 @@
         我們以聖經真理為根基，用愛心彼此服事，在異國他鄉建立屬神的家。
         無論您是初次來到教會，還是尋找一個屬靈的家，我們都歡迎您的到來。
       </p>
+      <img src="40345.jpg" alt="教会大家庭合影" class="about-photo" data-i18n-alt="about.photo.alt">
     </div>
   </section>
 
@@ -688,6 +709,7 @@
         <span class="en">PASTOR</span>
       </div>
       <div class="pastor-card">
+        <img src="40344.jpg" alt="河原駿一牧師夫婦" class="pastor-photo" data-i18n-alt="pastor.photo.alt">
         <h3 data-i18n="pastor.name">河原 駿一（馬宏偉）牧師</h3>
         <p class="pastor-subtitle" data-i18n="pastor.subtitle">愛之泉横浜基督教会 主任牧師</p>
         <dl class="pastor-bio">
@@ -816,7 +838,9 @@
         'hero.scroll': '▼ 向下瀏覽',
         'about.title': '關於我們',
         'about.text': '愛之泉横浜基督教会位於日本横浜，是一間以華人為主的基督教會。我們以聖經真理為根基，用愛心彼此服事，在異國他鄉建立屬神的家。無論您是初次來到教會，還是尋找一個屬靈的家，我們都歡迎您的到來。',
+        'about.photo.alt': '教会大家庭合影',
         'pastor.title': '牧師介紹',
+        'pastor.photo.alt': '河原駿一牧師夫婦',
         'pastor.name': '河原 駿一（馬宏偉）牧師',
         'pastor.subtitle': '愛之泉横浜基督教会 主任牧師',
         'pastor.edu': '學歷',
@@ -877,7 +901,9 @@
         'hero.scroll': '▼ 向下浏览',
         'about.title': '关于我们',
         'about.text': '爱之泉横浜基督教会位于日本横浜，是一间以华人为主的基督教会。我们以圣经真理为根基，用爱心彼此服事，在异国他乡建立属神的家。无论您是初次来到教会，还是寻找一个属灵的家，我们都欢迎您的到来。',
+        'about.photo.alt': '教会大家庭合影',
         'pastor.title': '牧师介绍',
+        'pastor.photo.alt': '河原駿一牧师夫妇',
         'pastor.name': '河原 駿一（马宏伟）牧师',
         'pastor.subtitle': '爱之泉横浜基督教会 主任牧师',
         'pastor.edu': '学历',
@@ -938,7 +964,9 @@
         'hero.scroll': '▼ スクロール',
         'about.title': '私たちについて',
         'about.text': '愛の泉横浜キリスト教会は、日本の横浜にある中国語を主な言語とするキリスト教会です。聖書の真理を土台とし、愛をもって互いに仕え合い、異国の地で神の家族を築いています。初めて教会を訪れる方も、霊的な居場所を探している方も、心から歓迎いたします。',
+        'about.photo.alt': '教会ファミリーの集合写真',
         'pastor.title': '牧師紹介',
+        'pastor.photo.alt': '河原駿一牧師ご夫妻',
         'pastor.name': '河原 駿一（馬宏偉）牧師',
         'pastor.subtitle': '愛の泉横浜キリスト教会 主任牧師',
         'pastor.edu': '学歴',
@@ -1004,6 +1032,12 @@
       document.querySelectorAll('[data-i18n-html]').forEach(el => {
         const key = el.getAttribute('data-i18n-html');
         if (dict[key]) el.innerHTML = dict[key];
+      });
+
+      // Update alt attributes
+      document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+        const key = el.getAttribute('data-i18n-alt');
+        if (dict[key]) el.alt = dict[key];
       });
 
       // Update placeholders
