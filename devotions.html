@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>靈修筆記 | 愛之泉横浜基督教会</title>
+  <meta name="description" content="愛之泉横浜基督教会 馬宏偉牧師的每日靈修筆記——逐日讀經默想與禱告，與神同行的屬靈札記。">
+  <meta name="keywords" content="靈修筆記,每日靈修,讀經默想,馬宏偉,愛之泉,横浜基督教会,デボーション">
+  <meta property="og:title" content="靈修筆記 | 愛之泉横浜基督教会">
+  <meta property="og:description" content="馬宏偉牧師的每日靈修筆記——逐日讀經默想與禱告。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://agape-brook-yokohama.github.io/devotions.html">
+  <link rel="canonical" href="https://agape-brook-yokohama.github.io/devotions.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%231A1A2E'/><rect x='44' y='15' width='12' height='70' rx='2' fill='%23C8A35F'/><rect x='25' y='33' width='50' height='12' rx='2' fill='%23C8A35F'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/library.css">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">愛之泉教会</a>
+      <button class="menu-toggle" aria-label="メニュー"><span></span><span></span><span></span></button>
+      <ul>
+        <li><a href="index.html" data-i18n="nav.home">回首頁</a></li>
+        <li><a href="pastor-words.html" data-i18n="nav.pword">牧師的話</a></li>
+        <li><a href="devotions.html" class="current" data-i18n="nav.devotion">靈修筆記</a></li>
+        <li><a href="index.html#services" data-i18n="nav.services">聚會時間</a></li>
+        <li>
+          <div class="lang-switcher">
+            <button data-lang="zh-TW" onclick="switchLang('zh-TW')" class="active">繁體</button>
+            <button data-lang="zh-CN" onclick="switchLang('zh-CN')">简体</button>
+            <button data-lang="ja" onclick="switchLang('ja')">日本語</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="list-section">
+    <header class="lib-hero">
+      <div class="inner">
+        <div class="crumb"><a href="index.html" data-i18n="nav.home">回首頁</a> ／ <span data-i18n="page.title">靈修筆記</span></div>
+        <div class="mark">&#10013;</div>
+        <h1 data-i18n="page.title">靈修筆記</h1>
+        <div class="en" data-i18n="page.en">DAILY DEVOTIONS</div>
+        <p class="lede" data-i18n="page.lede">每日與神同行的讀經默想，願神的話語成為你腳前的燈、路上的光。</p>
+      </div>
+    </header>
+
+    <div class="toolbar">
+      <div class="tools-inner">
+        <div class="search-box">
+          <span class="ico">&#128269;</span>
+          <input id="searchInput" type="search" autocomplete="off" placeholder="搜尋題目、經文或日期…" aria-label="搜尋">
+        </div>
+        <div class="year-pills" id="yearPills"></div>
+      </div>
+    </div>
+
+    <div class="list-wrap">
+      <p class="result-meta" id="resultMeta"></p>
+      <div class="card-grid" id="cardGrid"></div>
+      <div class="empty-row" id="emptyRow" style="display:none" data-i18n="empty">找不到符合的內容</div>
+      <div id="sentinel"></div>
+    </div>
+  </div>
+
+  <div class="article-view"><article class="article" id="articleBox"></article></div>
+
+  <footer>
+    <p class="church-name" data-i18n="site">愛之泉横浜基督教会</p>
+    <p>Agape Brook Yokohama Church</p>
+    <p style="margin-top:0.6rem"><a href="index.html" data-i18n="footer.back">← 回到教會首頁</a></p>
+  </footer>
+
+  <script>
+    window.LIB_CONFIG = {
+      kind: 'devotion',
+      indexUrl: 'data/devotions-index.json',
+      bucketBase: 'data/devotions/',
+      pageId: 'devotion',
+      i18n: {
+        'zh-TW': { 'site': '愛之泉横浜基督教会', 'page.title': '靈修筆記', 'page.en': 'DAILY DEVOTIONS',
+          'page.lede': '每日與神同行的讀經默想，願神的話語成為你腳前的燈、路上的光。' },
+        'zh-CN': { 'site': '爱之泉横浜基督教会', 'page.title': '灵修笔记', 'page.en': 'DAILY DEVOTIONS',
+          'page.lede': '每日与神同行的读经默想，愿神的话语成为你脚前的灯、路上的光。' },
+        'ja': { 'site': '愛の泉横浜キリスト教会', 'page.title': 'ディボーション', 'page.en': 'DAILY DEVOTIONS',
+          'page.lede': '日々みことばを黙想する歩み。神の言葉があなたの足のともしび、道の光となりますように。' }
+      }
+    };
+  </script>
+  <script src="assets/library.js"></script>
+
+</body>
+</html>

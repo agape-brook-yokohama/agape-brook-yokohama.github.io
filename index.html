@@ -48,7 +48,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --gold: #C8A35F;
@@ -73,13 +73,13 @@
     }
 
     body {
-      font-family: 'Noto Sans TC', 'Noto Sans JP', sans-serif;
+      font-family: 'Noto Sans TC', 'Noto Sans SC', 'Noto Sans JP', sans-serif;
       color: var(--text);
       line-height: 1.8;
     }
 
     body.lang-ja {
-      font-family: 'Noto Sans JP', 'Noto Sans TC', sans-serif;
+      font-family: 'Noto Sans JP', 'Noto Sans SC', 'Noto Sans TC', sans-serif;
     }
 
     /* ===== Navigation ===== */
@@ -105,7 +105,7 @@
 
     nav .logo {
       color: var(--gold);
-      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
+      font-family: 'Noto Serif TC', 'Noto Serif SC', 'Noto Serif JP', serif;
       font-size: 1.1rem;
       font-weight: 600;
       text-decoration: none;
@@ -230,7 +230,7 @@
     }
 
     .hero h1 {
-      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
+      font-family: 'Noto Serif TC', 'Noto Serif SC', 'Noto Serif JP', serif;
       font-size: 3.2rem;
       font-weight: 700;
       color: var(--white);
@@ -306,7 +306,7 @@
     }
 
     .section-title h2 {
-      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
+      font-family: 'Noto Serif TC', 'Noto Serif SC', 'Noto Serif JP', serif;
       font-size: 2rem;
       color: var(--dark);
       margin-bottom: 0.3rem;
@@ -379,7 +379,7 @@
     }
 
     .pastor-card h3 {
-      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
+      font-family: 'Noto Serif TC', 'Noto Serif SC', 'Noto Serif JP', serif;
       font-size: 1.4rem;
       color: var(--dark);
       margin-bottom: 0.3rem;
@@ -406,6 +406,147 @@
 
     .pastor-card .pastor-bio dd {
       margin-left: 1rem;
+    }
+
+    /* ===== Spiritual Nourishment ===== */
+    .nourish {
+      background: linear-gradient(180deg, var(--white) 0%, var(--off-white) 100%);
+    }
+
+    .nourish-intro {
+      text-align: center;
+      max-width: 640px;
+      margin: -1.5rem auto 3rem;
+      color: var(--text-light);
+      font-size: 0.98rem;
+      line-height: 2;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+    }
+
+    .feature-col {
+      background: var(--white);
+      border: 1px solid #e8e0d4;
+      border-top: 3px solid var(--gold);
+      border-radius: 6px;
+      padding: 1.8rem 1.8rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 24px rgba(26, 26, 46, 0.05);
+    }
+
+    .feature-head {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-bottom: 1.1rem;
+      margin-bottom: 0.6rem;
+      border-bottom: 1px solid #eee5d6;
+    }
+
+    .feature-icon {
+      font-size: 1.6rem;
+      color: var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--off-white);
+      border-radius: 50%;
+    }
+
+    .feature-head h3 {
+      font-family: 'Noto Serif SC', 'Noto Serif TC', 'Noto Serif SC', 'Noto Serif JP', serif;
+      font-size: 1.25rem;
+      color: var(--dark);
+    }
+
+    .feature-sub {
+      font-size: 0.8rem;
+      color: var(--gold);
+      letter-spacing: 0.03em;
+    }
+
+    .feature-list {
+      list-style: none;
+      flex: 1;
+      margin: 0.4rem 0 1.3rem;
+    }
+
+    .feature-list li.feature-loading {
+      color: var(--text-light);
+      font-size: 0.85rem;
+      padding: 0.6rem 0;
+    }
+
+    .feature-list a {
+      display: block;
+      text-decoration: none;
+      padding: 0.85rem 0;
+      border-bottom: 1px dashed #ece3d3;
+      transition: padding-left 0.2s, background 0.2s;
+    }
+
+    .feature-list a:last-child {
+      border-bottom: none;
+    }
+
+    .feature-list a:hover {
+      padding-left: 0.5rem;
+      background: linear-gradient(90deg, rgba(200,163,95,0.06), transparent);
+    }
+
+    .feature-list .fl-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.2rem;
+      flex-wrap: wrap;
+    }
+
+    .feature-list .fl-date {
+      font-size: 0.74rem;
+      color: var(--text-light);
+      letter-spacing: 0.03em;
+    }
+
+    .feature-list .fl-chip {
+      font-size: 0.68rem;
+      color: var(--navy);
+      background: #F3E9D4;
+      border-radius: 10px;
+      padding: 0.05rem 0.5rem;
+    }
+
+    .feature-list .fl-title {
+      font-family: 'Noto Serif SC', 'Noto Serif TC', 'Noto Serif SC', 'Noto Serif JP', serif;
+      font-size: 0.98rem;
+      color: var(--dark);
+      line-height: 1.5;
+    }
+
+    .feature-link {
+      align-self: flex-start;
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      border: 1px solid var(--gold);
+      padding: 0.5rem 1.4rem;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+    }
+
+    .feature-link:hover {
+      background: var(--gold);
+      color: var(--dark);
     }
 
     /* ===== Service Times ===== */
@@ -438,7 +579,7 @@
     }
 
     .service-card h3 {
-      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
+      font-family: 'Noto Serif TC', 'Noto Serif SC', 'Noto Serif JP', serif;
       font-size: 1.15rem;
       color: var(--dark);
       margin-bottom: 0.8rem;
@@ -469,7 +610,7 @@
     }
 
     .location-info h3 {
-      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
+      font-family: 'Noto Serif TC', 'Noto Serif SC', 'Noto Serif JP', serif;
       font-size: 1.3rem;
       color: var(--dark);
       margin-bottom: 1.5rem;
@@ -639,7 +780,7 @@
 
     footer .church-name {
       color: var(--gold);
-      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
+      font-family: 'Noto Serif TC', 'Noto Serif SC', 'Noto Serif JP', serif;
       font-size: 0.9rem;
       margin-bottom: 0.3rem;
     }
@@ -697,6 +838,15 @@
         grid-template-columns: 1fr;
       }
 
+      .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+
+      .nourish-intro {
+        margin-top: -0.5rem;
+      }
+
       section {
         padding: 3.5rem 1.5rem;
       }
@@ -715,6 +865,7 @@
       <ul>
         <li><a href="#about" data-i18n="nav.about">關於我們</a></li>
         <li><a href="#pastor" data-i18n="nav.pastor">牧師介紹</a></li>
+        <li><a href="#nourish" data-i18n="nav.nourish">靈糧專欄</a></li>
         <li><a href="#services" data-i18n="nav.services">聚會時間</a></li>
         <li><a href="#location" data-i18n="nav.location">交通資訊</a></li>
         <li><a href="#contact" data-i18n="nav.contact">聯絡我們</a></li>
@@ -783,6 +934,41 @@
           <dd data-i18n="pastor.faith2">2019年1月成為専職傳道</dd>
           <dd data-i18n="pastor.faith3">2019年6月按立為牧師</dd>
         </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- Spiritual Nourishment -->
+  <section class="nourish" id="nourish">
+    <div class="container">
+      <div class="section-title">
+        <h2 data-i18n="nourish.title">靈糧專欄</h2>
+        <span class="en">SPIRITUAL NOURISHMENT</span>
+      </div>
+      <p class="nourish-intro" data-i18n="nourish.intro">願神的話語日日餵養我們。這裡收錄了馬宏偉牧師多年來的牧函與靈修札記，與您一同在真理中扎根、在恩典中成長。</p>
+      <div class="feature-grid">
+        <article class="feature-col">
+          <div class="feature-head">
+            <span class="feature-icon">&#9999;</span>
+            <div>
+              <h3 data-i18n="nourish.pword.title">牧師的話</h3>
+              <p class="feature-sub" data-i18n="nourish.pword.sub">每週牧函・屬靈勉勵</p>
+            </div>
+          </div>
+          <ul class="feature-list" id="latestPastor"><li class="feature-loading" data-i18n="nourish.loading">載入中…</li></ul>
+          <a href="pastor-words.html" class="feature-link" data-i18n="nourish.more">瀏覽全部 &#8594;</a>
+        </article>
+        <article class="feature-col">
+          <div class="feature-head">
+            <span class="feature-icon">&#128214;</span>
+            <div>
+              <h3 data-i18n="nourish.devotion.title">靈修筆記</h3>
+              <p class="feature-sub" data-i18n="nourish.devotion.sub">每日讀經・默想禱告</p>
+            </div>
+          </div>
+          <ul class="feature-list" id="latestDevotion"><li class="feature-loading" data-i18n="nourish.loading">載入中…</li></ul>
+          <a href="devotions.html" class="feature-link" data-i18n="nourish.more">瀏覽全部 &#8594;</a>
+        </article>
       </div>
     </div>
   </section>
@@ -893,9 +1079,18 @@
         'logo': '愛之泉教会',
         'nav.about': '關於我們',
         'nav.pastor': '牧師介紹',
+        'nav.nourish': '靈糧專欄',
         'nav.services': '聚會時間',
         'nav.location': '交通資訊',
         'nav.contact': '聯絡我們',
+        'nourish.title': '靈糧專欄',
+        'nourish.intro': '願神的話語日日餵養我們。這裡收錄了馬宏偉牧師多年來的牧函與靈修札記，與您一同在真理中扎根、在恩典中成長。',
+        'nourish.pword.title': '牧師的話',
+        'nourish.pword.sub': '每週牧函・屬靈勉勵',
+        'nourish.devotion.title': '靈修筆記',
+        'nourish.devotion.sub': '每日讀經・默想禱告',
+        'nourish.more': '瀏覽全部 →',
+        'nourish.loading': '載入中…',
         'hero.title': '愛之泉横浜基督教会',
         'hero.verse': '「你們要先求祂的國和祂的義，這些東西都要加給你們了。」',
         'hero.cite': '— 馬太福音 6:33',
@@ -957,9 +1152,18 @@
         'logo': '爱之泉教会',
         'nav.about': '关于我们',
         'nav.pastor': '牧师介绍',
+        'nav.nourish': '灵粮专栏',
         'nav.services': '聚会时间',
         'nav.location': '交通信息',
         'nav.contact': '联络我们',
+        'nourish.title': '灵粮专栏',
+        'nourish.intro': '愿神的话语日日喂养我们。这里收录了马宏伟牧师多年来的牧函与灵修札记，与您一同在真理中扎根、在恩典中成长。',
+        'nourish.pword.title': '牧师的话',
+        'nourish.pword.sub': '每周牧函・属灵勉励',
+        'nourish.devotion.title': '灵修笔记',
+        'nourish.devotion.sub': '每日读经・默想祷告',
+        'nourish.more': '浏览全部 →',
+        'nourish.loading': '加载中…',
         'hero.title': '爱之泉横浜基督教会',
         'hero.verse': '「你们要先求祂的国和祂的义，这些东西都要加给你们了。」',
         'hero.cite': '— 马太福音 6:33',
@@ -1021,9 +1225,18 @@
         'logo': '愛の泉教会',
         'nav.about': '私たちについて',
         'nav.pastor': '牧師紹介',
+        'nav.nourish': 'みことばコラム',
         'nav.services': '集会案内',
         'nav.location': 'アクセス',
         'nav.contact': 'お問い合わせ',
+        'nourish.title': 'みことばコラム',
+        'nourish.intro': '神の言葉が日々わたしたちを養ってくださいますように。馬宏偉牧師による牧会の言葉と日々のディボーションを収めています。共に真理に根ざし、恵みのうちに成長しましょう。',
+        'nourish.pword.title': '牧師の言葉',
+        'nourish.pword.sub': '毎週の牧会メッセージ',
+        'nourish.devotion.title': 'ディボーション',
+        'nourish.devotion.sub': '日々の聖書黙想と祈り',
+        'nourish.more': 'すべて見る →',
+        'nourish.loading': '読み込み中…',
         'hero.title': '愛の泉横浜キリスト教会',
         'hero.verse': '「まず神の国と神の義とを求めなさい。そうすれば、これらのものはすべて、それに加えて与えられます。」',
         'hero.cite': '— マタイの福音書 6:33',
@@ -1125,11 +1338,43 @@
 
       // Update HTML lang attribute
       document.documentElement.lang = lang === 'zh-TW' ? 'zh-Hant' : lang === 'zh-CN' ? 'zh-Hans' : 'ja';
+
+      // Re-render latest devotion/pastor lists (date format follows language)
+      if (window.homeLatest) renderLatest();
+    }
+
+    // ----- 靈糧專欄：最新文章 -----
+    function fmtHomeDate(iso) {
+      const p = iso.split('-');
+      if (currentLang === 'ja') return p[0] + '年' + (+p[1]) + '月' + (+p[2]) + '日';
+      return p[0] + '.' + p[1] + '.' + p[2];
+    }
+
+    function latestItemHTML(e, page) {
+      const chip = e.scripture ? `<span class="fl-chip">${e.scripture}</span>` : '';
+      return `<a href="${page}#${e.id}">
+        <span class="fl-meta"><span class="fl-date">${fmtHomeDate(e.date)}</span>${chip}</span>
+        <span class="fl-title">${e.title}</span>
+      </a>`;
+    }
+
+    function renderLatest() {
+      const d = window.homeLatest;
+      if (!d) return;
+      const p = document.getElementById('latestPastor');
+      const v = document.getElementById('latestDevotion');
+      if (p) p.innerHTML = d.pastor.map(e => latestItemHTML(e, 'pastor-words.html')).join('');
+      if (v) v.innerHTML = d.devotion.map(e => latestItemHTML(e, 'devotions.html')).join('');
     }
 
     // Apply saved language on load
     window.addEventListener('DOMContentLoaded', () => {
       switchLang(currentLang);
+
+      fetch('data/home-latest.json')
+        .then(r => r.json())
+        .then(data => { window.homeLatest = data; renderLatest(); })
+        .catch(() => {});
 
       // Show success message after form submission redirect
       if (document.referrer.includes('formsubmit.co')) {
